@@ -1,3 +1,7 @@
+> **Fork.** This is a modified version of Jellyfin, maintained by pacolopez23.
+> It is not affiliated with or endorsed by the Jellyfin project.
+> See [CHANGES.md](CHANGES.md) for the list of modifications.
+
 <h1 align="center">Jellyfin</h1>
 <h3 align="center">The Free Software Media System</h3>
 
