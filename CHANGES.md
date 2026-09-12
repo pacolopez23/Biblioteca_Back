@@ -32,3 +32,14 @@ Side effect: media streaming endpoints (audio/video/HLS/subtitles/attachments/li
 recordings), previously anonymous, now require a valid token (sent by clients via
 the `api_key` query parameter). Verified: login, library browsing and playback all
 work with the change.
+
+## 2026-09-12 — Bugfix (back)
+
+**Stop serializing AggregateFolder.Children** (`MediaBrowser.Controller/Entities/AggregateFolder.cs`)
+The base `Folder.Children` is `[JsonIgnore]`, but the `AggregateFolder` override
+(which added a setter) dropped the attribute, so the root folder was persisted with
+its `Children` array in the item JSON blob. On read, deserialization failed with
+"Deserialization of interface or abstract types is not supported. Type 'BaseItem'.
+Path: $.Children[0]", which broke /UserViews (500) and startup on a fresh database.
+Re-added `[JsonIgnore]` to the override. Fixes clean-install startup and library
+browsing.
