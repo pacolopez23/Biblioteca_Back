@@ -104,6 +104,7 @@ public class UserController : BaseJellyfinApiController
     /// </summary>
     /// <response code="200">Public users returned.</response>
     /// <returns>An <see cref="IEnumerable{UserDto}"/> containing the public users.</returns>
+    [AllowAnonymous]
     [HttpGet("Public")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public ActionResult<IEnumerable<UserDto>> GetPublicUsers()
@@ -175,6 +176,7 @@ public class UserController : BaseJellyfinApiController
     /// <response code="403">Sha1-hashed password only is not allowed.</response>
     /// <response code="404">User not found.</response>
     /// <returns>A <see cref="Task"/> containing an <see cref="AuthenticationResult"/>.</returns>
+    [AllowAnonymous]
     [HttpPost("{userId}/Authenticate")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -206,6 +208,7 @@ public class UserController : BaseJellyfinApiController
     /// <param name="request">The <see cref="AuthenticateUserByName"/> request.</param>
     /// <response code="200">User authenticated.</response>
     /// <returns>A <see cref="Task"/> containing an <see cref="AuthenticationRequest"/> with information about the new session.</returns>
+    [AllowAnonymous]
     [HttpPost("AuthenticateByName")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [Tags("Authentication")]
@@ -242,6 +245,7 @@ public class UserController : BaseJellyfinApiController
     /// <response code="200">User authenticated.</response>
     /// <response code="400">Missing token.</response>
     /// <returns>A <see cref="Task"/> containing an <see cref="AuthenticationRequest"/> with information about the new session.</returns>
+    [AllowAnonymous]
     [HttpPost("AuthenticateWithQuickConnect")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [Tags("Authentication")]
@@ -538,6 +542,7 @@ public class UserController : BaseJellyfinApiController
     /// <param name="forgotPasswordRequest">The forgot password request containing the entered username.</param>
     /// <response code="200">Password reset process started.</response>
     /// <returns>A <see cref="Task"/> containing a <see cref="ForgotPasswordResult"/>.</returns>
+    [AllowAnonymous]
     [HttpPost("ForgotPassword")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [Tags("Authentication")]
@@ -563,6 +568,7 @@ public class UserController : BaseJellyfinApiController
     /// <param name="forgotPasswordPinRequest">The forgot password pin request containing the entered pin.</param>
     /// <response code="200">Pin reset process started.</response>
     /// <returns>A <see cref="Task"/> containing a <see cref="PinRedeemResult"/>.</returns>
+    [AllowAnonymous]
     [HttpPost("ForgotPassword/Pin")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [Tags("Authentication")]

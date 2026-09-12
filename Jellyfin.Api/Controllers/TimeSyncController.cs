@@ -2,6 +2,7 @@ using System;
 using MediaBrowser.Model.SyncPlay;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Jellyfin.Api.Controllers;
 
@@ -17,6 +18,7 @@ public class TimeSyncController : BaseJellyfinApiController
     /// </summary>
     /// <response code="200">Time returned.</response>
     /// <returns>An <see cref="UtcTimeResponse"/> to sync the client and server time.</returns>
+    [AllowAnonymous]
     [HttpGet("GetUtcTime")]
     [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
     public ActionResult<UtcTimeResponse> GetUtcTime()

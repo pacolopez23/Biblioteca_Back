@@ -549,6 +549,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Items/{itemId}/Images/{imageType}")]
     [HttpHead("Items/{itemId}/Images/{imageType}", Name = "HeadItemImage")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -627,6 +628,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Items/{itemId}/Images/{imageType}/{imageIndex}")]
     [HttpHead("Items/{itemId}/Images/{imageType}/{imageIndex}", Name = "HeadItemImageByIndex")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -705,6 +707,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}")]
     [HttpHead("Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}", Name = "HeadItemImage2")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -783,6 +786,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Artists/{name}/Images/{imageType}/{imageIndex}")]
     [HttpHead("Artists/{name}/Images/{imageType}/{imageIndex}", Name = "HeadArtistImage")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -861,6 +865,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Genres/{name}/Images/{imageType}")]
     [HttpHead("Genres/{name}/Images/{imageType}", Name = "HeadGenreImage")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -939,6 +944,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Genres/{name}/Images/{imageType}/{imageIndex}")]
     [HttpHead("Genres/{name}/Images/{imageType}/{imageIndex}", Name = "HeadGenreImageByIndex")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -1017,6 +1023,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("MusicGenres/{name}/Images/{imageType}")]
     [HttpHead("MusicGenres/{name}/Images/{imageType}", Name = "HeadMusicGenreImage")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -1095,6 +1102,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("MusicGenres/{name}/Images/{imageType}/{imageIndex}")]
     [HttpHead("MusicGenres/{name}/Images/{imageType}/{imageIndex}", Name = "HeadMusicGenreImageByIndex")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -1173,6 +1181,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Persons/{name}/Images/{imageType}")]
     [HttpHead("Persons/{name}/Images/{imageType}", Name = "HeadPersonImage")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -1251,6 +1260,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Persons/{name}/Images/{imageType}/{imageIndex}")]
     [HttpHead("Persons/{name}/Images/{imageType}/{imageIndex}", Name = "HeadPersonImageByIndex")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -1329,6 +1339,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Studios/{name}/Images/{imageType}")]
     [HttpHead("Studios/{name}/Images/{imageType}", Name = "HeadStudioImage")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -1407,6 +1418,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Studios/{name}/Images/{imageType}/{imageIndex}")]
     [HttpHead("Studios/{name}/Images/{imageType}/{imageIndex}", Name = "HeadStudioImageByIndex")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -1472,6 +1484,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("UserImage")]
     [HttpHead("UserImage", Name = "HeadUserImage")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -1551,6 +1564,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Users/{userId}/Images/{imageType}")]
     [HttpHead("Users/{userId}/Images/{imageType}", Name = "HeadUserImageLegacy")]
     [Obsolete("Kept for backwards compatibility")]
@@ -1607,6 +1621,7 @@ public class ImageController : BaseJellyfinApiController
     /// A <see cref="FileStreamResult"/> containing the file stream on success,
     /// or a <see cref="NotFoundResult"/> if item not found.
     /// </returns>
+    [AllowAnonymous]
     [HttpGet("Users/{userId}/Images/{imageType}/{imageIndex}")]
     [HttpHead("Users/{userId}/Images/{imageType}/{imageIndex}", Name = "HeadUserImageByIndexLegacy")]
     [Obsolete("Kept for backwards compatibility")]
@@ -1644,6 +1659,7 @@ public class ImageController : BaseJellyfinApiController
     /// <param name="format">Determines the output format of the image - original,gif,jpg,png.</param>
     /// <response code="200">Splashscreen returned successfully.</response>
     /// <returns>The splashscreen.</returns>
+    [AllowAnonymous]
     [HttpGet("Branding/Splashscreen")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesImageFile]

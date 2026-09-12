@@ -67,6 +67,10 @@ namespace Jellyfin.Server.Extensions
                     .AddRequirements(new DefaultAuthorizationRequirement())
                     .Build();
 
+                // Deny-by-default: any endpoint without an explicit [Authorize]/[AllowAnonymous]
+                // now requires an authenticated user instead of being publicly reachable.
+                options.FallbackPolicy = options.DefaultPolicy;
+
                 options.AddPolicy(Policies.AnonymousLanAccessPolicy, new AnonymousLanAccessRequirement());
                 options.AddPolicy(Policies.CollectionManagement, new UserPermissionRequirement(PermissionKind.EnableCollectionManagement));
                 options.AddPolicy(Policies.Download, new UserPermissionRequirement(PermissionKind.EnableContentDownloading));
