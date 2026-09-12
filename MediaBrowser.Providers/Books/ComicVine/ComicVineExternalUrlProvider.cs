@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MediaBrowser.Controller.Entities;
 using MediaBrowser.Controller.Providers;
@@ -20,7 +21,7 @@ public class ComicVineExternalUrlProvider : IExternalUrlProvider
             {
                 case Person:
                 case Book:
-                    yield return $"https://comicvine.gamespot.com/{externalId}";
+                    yield return $"https://comicvine.gamespot.com/{Uri.EscapeDataString(externalId)}";
                     break;
             }
         }

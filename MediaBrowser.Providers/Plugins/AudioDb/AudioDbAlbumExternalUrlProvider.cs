@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MediaBrowser.Controller.Entities;
 using MediaBrowser.Controller.Entities.Audio;
@@ -23,7 +24,7 @@ public class AudioDbAlbumExternalUrlProvider : IExternalUrlProvider
             switch (item)
             {
                 case MusicAlbum:
-                    yield return baseUrl + $"album/{externalId}";
+                    yield return baseUrl + $"album/{Uri.EscapeDataString(externalId)}";
                     break;
             }
         }

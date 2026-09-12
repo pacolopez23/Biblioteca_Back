@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MediaBrowser.Controller.Entities;
 using MediaBrowser.Controller.Providers;
@@ -18,7 +19,7 @@ public class IsbnExternalUrlProvider : IExternalUrlProvider
         {
             if (item is Book)
             {
-                yield return $"https://search.worldcat.org/search?q=bn:{externalId}";
+                yield return $"https://search.worldcat.org/search?q=bn:{Uri.EscapeDataString(externalId)}";
             }
         }
     }

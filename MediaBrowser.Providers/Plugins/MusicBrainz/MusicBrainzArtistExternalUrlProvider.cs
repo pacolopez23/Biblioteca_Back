@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MediaBrowser.Controller.Entities;
 using MediaBrowser.Controller.Entities.Audio;
@@ -23,7 +24,7 @@ public class MusicBrainzArtistExternalUrlProvider : IExternalUrlProvider
             {
                 case MusicArtist:
                 case Person:
-                    yield return Plugin.Instance!.Configuration.Server + $"/artist/{externalId}";
+                    yield return Plugin.Instance!.Configuration.Server + $"/artist/{Uri.EscapeDataString(externalId)}";
 
                     break;
             }

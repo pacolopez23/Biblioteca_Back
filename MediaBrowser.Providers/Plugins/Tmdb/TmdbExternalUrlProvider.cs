@@ -25,7 +25,7 @@ public class TmdbExternalUrlProvider : IExternalUrlProvider
             case Series:
                 if (item.TryGetProviderId(MetadataProvider.Tmdb, out var externalId))
                 {
-                    yield return TmdbUtils.BaseTmdbUrl + $"tv/{externalId}";
+                    yield return TmdbUtils.BaseTmdbUrl + $"tv/{Uri.EscapeDataString(externalId)}";
                 }
 
                 break;
@@ -37,14 +37,14 @@ public class TmdbExternalUrlProvider : IExternalUrlProvider
                     if (string.IsNullOrEmpty(orderString) && seasonNumber is not null)
                     {
                         // Default order is airdate
-                        yield return TmdbUtils.BaseTmdbUrl + $"tv/{seriesExternalId}/season/{seasonNumber}";
+                        yield return TmdbUtils.BaseTmdbUrl + $"tv/{Uri.EscapeDataString(seriesExternalId)}/season/{seasonNumber}";
                     }
 
                     if (Enum.TryParse<TvGroupType>(season.Series.DisplayOrder, out var order))
                     {
                         if (order.Equals(TvGroupType.OriginalAirDate) && seasonNumber is not null)
                         {
-                            yield return TmdbUtils.BaseTmdbUrl + $"tv/{seriesExternalId}/season/{seasonNumber}";
+                            yield return TmdbUtils.BaseTmdbUrl + $"tv/{Uri.EscapeDataString(seriesExternalId)}/season/{seasonNumber}";
                         }
                     }
                 }
@@ -59,14 +59,14 @@ public class TmdbExternalUrlProvider : IExternalUrlProvider
                     if (string.IsNullOrEmpty(orderString) && seasonNumber is not null && episodeNumber is not null)
                     {
                         // Default order is airdate
-                        yield return TmdbUtils.BaseTmdbUrl + $"tv/{seriesExternalId}/season/{seasonNumber}/episode/{episodeNumber}";
+                        yield return TmdbUtils.BaseTmdbUrl + $"tv/{Uri.EscapeDataString(seriesExternalId)}/season/{seasonNumber}/episode/{episodeNumber}";
                     }
 
                     if (Enum.TryParse<TvGroupType>(orderString, out var order))
                     {
                         if (order.Equals(TvGroupType.OriginalAirDate) && seasonNumber is not null && episodeNumber is not null)
                         {
-                            yield return TmdbUtils.BaseTmdbUrl + $"tv/{seriesExternalId}/season/{seasonNumber}/episode/{episodeNumber}";
+                            yield return TmdbUtils.BaseTmdbUrl + $"tv/{Uri.EscapeDataString(seriesExternalId)}/season/{seasonNumber}/episode/{episodeNumber}";
                         }
                     }
                 }
@@ -75,21 +75,21 @@ public class TmdbExternalUrlProvider : IExternalUrlProvider
             case Movie:
                 if (item.TryGetProviderId(MetadataProvider.Tmdb, out externalId))
                 {
-                    yield return TmdbUtils.BaseTmdbUrl + $"movie/{externalId}";
+                    yield return TmdbUtils.BaseTmdbUrl + $"movie/{Uri.EscapeDataString(externalId)}";
                 }
 
                 break;
             case Person:
                 if (item.TryGetProviderId(MetadataProvider.Tmdb, out externalId))
                 {
-                    yield return TmdbUtils.BaseTmdbUrl + $"person/{externalId}";
+                    yield return TmdbUtils.BaseTmdbUrl + $"person/{Uri.EscapeDataString(externalId)}";
                 }
 
                 break;
             case BoxSet:
                 if (item.TryGetProviderId(MetadataProvider.Tmdb, out externalId))
                 {
-                    yield return TmdbUtils.BaseTmdbUrl + $"collection/{externalId}";
+                    yield return TmdbUtils.BaseTmdbUrl + $"collection/{Uri.EscapeDataString(externalId)}";
                 }
 
                 break;

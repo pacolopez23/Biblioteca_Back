@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MediaBrowser.Controller.Entities;
 using MediaBrowser.Controller.Entities.TV;
@@ -24,7 +25,7 @@ public class ImdbExternalUrlProvider : IExternalUrlProvider
             if (season.Series?.TryGetProviderId(MetadataProvider.Imdb, out var seriesImdbId) == true
                 && season.IndexNumber.HasValue)
             {
-                yield return baseUrl + $"title/{seriesImdbId}/episodes/?season={season.IndexNumber.Value}";
+                yield return baseUrl + $"title/{Uri.EscapeDataString(seriesImdbId)}/episodes/?season={season.IndexNumber.Value}";
             }
 
             yield break;
@@ -34,11 +35,11 @@ public class ImdbExternalUrlProvider : IExternalUrlProvider
         {
             if (item is Person)
             {
-                yield return baseUrl + $"name/{externalId}";
+                yield return baseUrl + $"name/{Uri.EscapeDataString(externalId)}";
             }
             else
             {
-                yield return baseUrl + $"title/{externalId}";
+                yield return baseUrl + $"title/{Uri.EscapeDataString(externalId)}";
             }
         }
     }

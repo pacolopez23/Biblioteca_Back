@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MediaBrowser.Controller.Entities;
 using MediaBrowser.Controller.Entities.Audio;
@@ -21,7 +22,7 @@ public class MusicBrainzAlbumExternalUrlProvider : IExternalUrlProvider
         {
             if (item.TryGetProviderId(MetadataProvider.MusicBrainzAlbum, out var externalId))
             {
-                yield return Plugin.Instance!.Configuration.Server + $"/release/{externalId}";
+                yield return Plugin.Instance!.Configuration.Server + $"/release/{Uri.EscapeDataString(externalId)}";
             }
         }
     }

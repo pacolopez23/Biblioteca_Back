@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MediaBrowser.Controller.Entities;
 using MediaBrowser.Controller.Providers;
@@ -18,7 +19,7 @@ public class GoogleBooksExternalUrlProvider : IExternalUrlProvider
         {
             if (item is Book)
             {
-                yield return $"https://books.google.com/books?id={externalId}";
+                yield return $"https://books.google.com/books?id={Uri.EscapeDataString(externalId)}";
             }
         }
     }
